@@ -5,26 +5,21 @@ letterFull = ["F", "V(U)", "TH", "O", "R", "C(K)", "G", "W", "H", "N", "I", "J",
 decimal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
 
 
-def abstractionWarning():
+def Warning(someRunes):
     word = []
     wordFull = []
-    for e in i:
+    for e in someRunes:
         if e in rune:
             word.append(letter[28 - rune.index(e)])
             wordFull.append(letterFull[28-rune.index(e)])
-        elif e == "/":
-            word.append("\n")
-            wordFull.append(" \\n")
         elif e == "-":
             word.append(" ")
             wordFull.append("[]")
         elif e == ".":
-            word.append("; ")
-            wordFull.append("! ")
-
-    print(("".join(word)[:-1]))
-    #print("".join(wordFull))
+            word.append("\n")
+            wordFull.append("\n ")
     
+    #print("".join(wordFull))
     return ("".join(word))
 
 
@@ -33,7 +28,6 @@ with open("text.txt", "r", 1, "utf-8") as f:
     fullPhrase = []
     for i in f.readlines():
         i = i.strip()
-        print(i)
-        fullPhrase.append(abstractionWarning())
-    print("\n"*2)
+        #print(i)
+        fullPhrase.append(Warning(i))
     print("".join(fullPhrase))
